@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "97ebbafb-33da-49ce-9d68-5e6494842194",
+		"name": "MockTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19400736"
+	},
+	"item": [
+		{
+			"name": "FirstTest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//1.Correct response format JSON ",
+							"pm.test(\"Check correct response format JSON\", function(){",
+							"    pm.response.to.have.jsonBody()",
+							"});",
+							"",
+							"//2.We have all the declared fields in the response",
+							"pm.test(\"Check that we have all the declared fields\", function(){",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property(\"people\");",
+							"    pm.expect(jsonData).to.have.property(\"planets\");",
+							"    pm.expect(jsonData).to.have.property(\"films\");",
+							"    pm.expect(jsonData).to.have.property(\"species\");",
+							"    pm.expect(jsonData).to.have.property(\"vehicles\");",
+							"    pm.expect(jsonData).to.have.property(\"starships\");",
+							"});",
+							"",
+							"//3.Field value is not NULL",
+							"pm.test(\"Check if value is not NULL\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.people).not.equal(null);",
+							"    pm.expect(jsonData.planets).not.equal(null);",
+							"    pm.expect(jsonData.films).not.equal(null);",
+							"    pm.expect(jsonData.species).not.equal(null);",
+							"    pm.expect(jsonData.vehicles).not.equal(null);",
+							"    pm.expect(jsonData.starships).not.equal(null);",
+							"});",
+							"",
+							"//4.Field value is not empty ",
+							"pm.test(\"Check if value is not empty\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.people).not.equal(\"\");",
+							"    pm.expect(jsonData.planets).not.equal(\"\");",
+							"    pm.expect(jsonData.films).not.equal(\"\");",
+							"    pm.expect(jsonData.species).not.equal(\"\");",
+							"    pm.expect(jsonData.vehicles).not.equal(\"\");",
+							"    pm.expect(jsonData.starships).not.equal(\"\");",
+							"});",
+							"",
+							"//5.The field corresponds to a specific value",
+							"pm.test(\"Check if field corresponds to a specific value\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.people).to.equal(\"https://swapi.dev/api/people/\");",
+							"    pm.expect(jsonData.planets).to.equal(\"https://swapi.dev/api/planets/\");",
+							"    pm.expect(jsonData.films).to.equal(\"https://swapi.dev/api/films/\");",
+							"    pm.expect(jsonData.species).to.equal(\"https://swapi.dev/api/species/\");",
+							"    pm.expect(jsonData.vehicles).to.equal(\"https://swapi.dev/api/vehicles/\");",
+							"    pm.expect(jsonData.starships).to.equal(\"https://swapi.dev/api/starships/\");",
+							"});",
+							"",
+							"//6.Status code is 200",
+							"pm.test(\"Check the status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//7.Status message is OK",
+							"pm.test(\"Check the status message is OK\", function(){",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"//8. Response time is less than 1000ms",
+							"pm.test(\"Check response time is less than 1000ms\",function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"//9.There is a specific header in the response ",
+							"pm.test(\"Check a specific header in the response\", function(){",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"//10.The response has a specific header with a specific value",
+							"pm.test(\"Check response has a specific header with a specific value\", function(){",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json\");",
+							"});",
+							"",
+							"//11.Cookie exists",
+							"pm.test(\"Check the cookie exists\", function(){",
+							"    pm.cookies.has(\"__cfduid\");",
+							"});",
+							"",
+							"//12.Cookie has value",
+							"pm.test(\"Check cookie has value\", function(){",
+							"    try{",
+							"        var MY_COOKIE = pm.cookies.get(\"__cfduid\");",
+							"        console.log (MY_COOKIE);",
+							"    } catch(e){",
+							"        console.log(\"SOME PROBLEM WITH COOKIE ->\" + e)",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io",
+					"protocol": "https",
+					"host": [
+						"7c0ce8cb-d144-4f77-896f-33b42fa4b436",
+						"mock",
+						"pstmn",
+						"io"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io",
+							"protocol": "https",
+							"host": [
+								"7c0ce8cb-d144-4f77-896f-33b42fa4b436",
+								"mock",
+								"pstmn",
+								"io"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 12 Apr 2023 02:31:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "164"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=cb7bdc7be935c102"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=f415af7a8cb5daca"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1681266777"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"test\",\n        \"message\": \"success\",\n        \"header\": \"You need an example\"\n    }\n}"
+				},
+				{
+					"name": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Vlada\"}"
+						},
+						"url": {
+							"raw": "https://7c0ce8cb-d144-4f77-896f-33b42fa4b436.mock.pstmn.io/action",
+							"protocol": "https",
+							"host": [
+								"7c0ce8cb-d144-4f77-896f-33b42fa4b436",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"action"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 12 Apr 2023 02:34:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=cb7bdc7be935c102"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=f415af7a8cb5daca"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1681266777"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": {\n        \"name\": \"Vlada\",\n        \"status\": \"created\"\n        \"message\": \"success\",\n        \"header\": \"You need an example\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
